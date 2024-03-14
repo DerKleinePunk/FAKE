@@ -652,6 +652,7 @@ Target.create "DotNetCoreIntegrationTests" (fun _ ->
         "Fake_Core_IntegrationTests.TestResults.xml")
 
 Target.create "TemplateIntegrationTests" (fun _ ->
+    // dotnet run --project src/test/Fake.Core.IntegrationTests/Fake.Core.IntegrationTests.fsproj
     let targetDir = srcDir </> "test" </> "Fake.DotNet.Cli.IntegrationTests"
 
     runExpecto
@@ -662,7 +663,7 @@ Target.create "TemplateIntegrationTests" (fun _ ->
     Shell.rm_rf (root </> "test"))
 
 Target.create "DotNetCoreUnitTests" (fun _ ->
-    // dotnet run -p src/test/Fake.Core.UnitTests/Fake.Core.UnitTests.fsproj
+    // dotnet run --project src/test/Fake.Core.UnitTests/Fake.Core.UnitTests.fsproj
     runExpecto
         root
         "src/test/Fake.Core.UnitTests/bin/Release/net6.0/Fake.Core.UnitTests.dll"
